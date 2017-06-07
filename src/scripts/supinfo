@@ -1,0 +1,22 @@
+# Description:
+#   Hubot, say things about Supinfo !
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#   None
+#
+# Commands:
+#   School or sup or Supinfo make hubot say things about the school
+things = [
+    "% Supinfo is the best school of the world as well !",
+    "% I love the way Supinfo permits to get jobs at the end of cursus, but it is a little bit expensive ! :') ",
+    "% What ? Supinfo ? Of course we love it !",
+    "% Best, School, Ever, ok ?"
+]
+
+module.exports = (robot) ->
+    robot.hear /(sup|Supinfo|supinfo|Sup)/i, (msg) ->
+        thing = msg.random things
+        msg.send thing.replace "%", msg.message.user.name
